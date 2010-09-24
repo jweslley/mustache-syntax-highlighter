@@ -4,11 +4,16 @@ Mustache Syntax Highlighter
 A plugin for [mustache.rb][mr] that lets you syntax highlight blocks
 of code using sections.
 
-Essentially a demo of Mustache's "Higher Order Sections" functionality.
+## Syntax
 
-For example, this template:
+You can to highlight a piece of code by wrapping text in a section whose
+name starts with `highlight_` followed by the lexer's name.
 
-    I wrote some great code!
+  `{{# highlight_lexer}} code {{/ highlight_lexer}}`
+
+To see the complete list of available lexers [click here][lx].
+
+For example, to activate the ruby lexer, use this template:
 
     {{# highlight_ruby}}
     def hello
@@ -16,20 +21,16 @@ For example, this template:
     end
     {{/ highlight_ruby}}
 
-    Sweet. It works.
-
 Will produce this text:
-
-    I wrote some great code!
 
     <div class="highlight"><pre><span class="k">def</span> <span class="nf">hello</span>
       <span class="nb">puts</span> <span class="s2">&quot;Hi world!&quot;</span>
     <span class="k">end</span>
     </pre></div>
 
-    Sweet. It works.
-
 Just include the [Pygments css file][pc] and you're ready to roll.
+
+## Usage
 
 If you want to use this in a `Mustache` view you can include it in
 your subclass:
@@ -62,21 +63,6 @@ Becomes this:
 
 Note the `Hi Bobs!`
 
-## Available Lexers
-
-This is currently only a demo, so we've hardcoded a small number of lexers:
-
-* ruby
-* js
-* python
-* scheme
-
-Use `{{# highlight_scheme}} code {{/ highlight_scheme}}`, for example,
-to activate one of the lexers.
-
-To get a complete list run `rake lexers` in the root of this project.
-
-
 ## Dependencies
 
 * Pygments
@@ -84,3 +70,4 @@ To get a complete list run `rake lexers` in the root of this project.
 
 [mr]: http://github.com/defunkt/mustache
 [pc]: http://pygments.org/media/pygments_style.css
+[lx]: http://pygments.org/docs/lexers/
