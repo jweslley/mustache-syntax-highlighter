@@ -7,7 +7,7 @@ class Mustache
       HIGHLIGHT = 'highlight_'
 
       def respond_to?(id)
-        id.to_s.start_with? HIGHLIGHT
+        id.to_s.start_with? HIGHLIGHT ? true : super
       end
 
       def method_missing(id)
